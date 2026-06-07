@@ -1,0 +1,51 @@
+# indirect_strided.yaml
+Frontend:
+  impl: PIMLoadStoreTrace
+  # path: ./trace_gen/trace/test.trace
+  path: ../trace_gen/trace/str_trace_K64B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K64B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K128B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K256B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K512B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K1024B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K2048B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K4096B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K8192B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K16384B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K32768B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K65536B.trace
+  # path: ./trace_gen/agg_bw_strided_strided_N3200000_K131072B.trace
+
+  clock_ratio: 1
+
+  Translation:
+    impl: NoTranslation
+    max_addr: 2147483648
+              
+
+MemorySystem:
+  impl: PIMDRAM
+  clock_ratio: 1
+  DRAM:
+    impl: HBM3-PIM
+    org:
+      preset: HBM3_8Gb_2R
+      channel: 16
+    timing:
+      preset: HBM3_5.2Gbps
+      #preset: HBM3_5.2Gbps_NPC
+
+  Controller:
+    impl: HBM3-PIM
+    Scheduler:
+      impl: PIM
+    RefreshManager:
+      impl: AllBankHBM3
+      #impl: No
+    plugins:
+    - ControllerPlugin:
+        impl: HBM3TraceRecorder
+        path: ./log/indirect_strided/cmd.log
+
+  AddrMapper:
+    impl: HBM3-PIM-Scheme8

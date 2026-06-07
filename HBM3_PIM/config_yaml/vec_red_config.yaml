@@ -1,0 +1,33 @@
+Frontend:
+  impl: PIMLoadStoreTrace
+  path: ../trace_gen/vec_red_167772160.trace
+  clock_ratio: 1
+
+  Translation:
+    impl: NoTranslation
+    max_addr: 17179869184
+
+MemorySystem:
+  impl: PIMDRAM
+  clock_ratio: 1
+  DRAM:
+    impl: HBM3-PIM
+    org:
+      preset: HBM3_8Gb_2R
+      channel: 16
+    timing:
+      preset: HBM3_5.2Gbps
+
+  Controller:
+    impl: HBM3-PIM
+    Scheduler:
+      impl: PIM
+    RefreshManager:
+      impl: AllBankHBM3
+    plugins:
+    - ControllerPlugin:
+        impl: HBM3TraceRecorder
+        path: ./log/spmv/cmd.log
+
+  AddrMapper:
+    impl: HBM3-PIM

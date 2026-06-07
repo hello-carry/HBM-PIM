@@ -1,0 +1,29 @@
+Frontend:
+  impl: PIMLoadStoreTrace
+  path: ../trace_gen/trace/hbm3_pim_add_fp16.trace
+  clock_ratio: 1
+
+  Translation:
+    impl: NoTranslation
+    max_addr: 17179869184
+
+MemorySystem:
+  impl: PIMDRAM
+  clock_ratio: 1
+  DRAM:
+    impl: HBM3-PIM
+    org:
+      preset: HBM3_8Gb_2R
+      channel: 16
+    timing:
+      preset: HBM3_5.2Gbps
+
+  Controller:
+    impl: HBM3-PIM
+    Scheduler:
+      impl: PIM
+    RefreshManager:
+      impl: No
+
+  AddrMapper:
+    impl: HBM3-PIM

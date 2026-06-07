@@ -1,0 +1,54 @@
+# OS and editor metadata
+.DS_Store
+.vscode/
+.claude/
+*.swp
+*.swo
+*~
+
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Native build products
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+.sconsign.dblite
+*.o
+*.os
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Project executables and build directories
+HBM2_PIM/bin/
+HBM2_PIM/sim
+HBM2_PIM/libdramsim/libdramsim2.*
+HBM3_PIM/ramulator2
+HBM3_PIM/config_yaml/ramulator2
+HBM3_PIM/libramulator.so
+GPU_CPU/*/bin/
+
+# Generated simulator output
+*.log
+*.trace
+HBM3_PIM/config_yaml/log/
+
+# Compiled CPU/GPU baseline executables (build products)
+GPU_CPU/GEMV/baselines/*/gemv
+GPU_CPU/SpMV/baselines/*/spmv
+GPU_CPU/HIST/baselines/cpu/hist
+GPU_CPU/HIST/baselines/gpu/hsti
+GPU_CPU/SRED/baselines/*/red
+GPU_CPU/VA/baselines/*/va
+
+# Local scratch / unpublished study (not part of the released suite)
+HBM3_PIM/rh_study/
