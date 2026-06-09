@@ -1,6 +1,6 @@
 # HBM-PIM Evaluation Suite
 
-This repository accompanies our TPDS submission. It collects three independent
+This repository collects three independent
 code bases used to evaluate processing-in-memory (PIM) on HBM memory stacks and
 to compare it against conventional CPU and GPU processors across a common set of
 data-parallel workloads (GEMM, GEMV, SpMV, 1-D convolution, histogram,
